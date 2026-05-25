@@ -1,0 +1,409 @@
+/* Block any Lottie layers injected by MICASA main.js (static Mercana logos only) */
+#navbar-brand svg,
+.hero-cover #logo-animation {
+  display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MERCANA Hero — fullscreen cinematic video background
+   ═══════════════════════════════════════════════════════════════ */
+
+.mercana-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #000;
+}
+
+.mercana-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.mercana-hero__video,
+.mercana-hero__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mercana-hero__video {
+  z-index: 0;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.mercana-hero__video.is-ready {
+  opacity: 1;
+}
+
+.mercana-hero__poster {
+  z-index: 0;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.mercana-hero__video.is-ready + .mercana-hero__poster {
+  opacity: 0;
+}
+
+.mercana-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.38) 0%,
+    rgba(0, 0, 0, 0.28) 42%,
+    rgba(0, 0, 0, 0.52) 100%
+  );
+}
+
+.mercana-hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+
+.mercana-hero .arrow {
+  position: absolute;
+  z-index: 3;
+}
+
+.mercana-hero .hero-cover {
+  background: transparent;
+}
+
+.mercana-hero .logo {
+  max-width: min(72vw, 500px);
+  height: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .mercana-hero .logo {
+    max-width: 420px;
+  }
+}
+
+@media only screen and (min-width: 1680px) {
+  .mercana-hero .logo {
+    max-width: 500px;
+  }
+}
+
+.home #navbar {
+  position: relative;
+  z-index: 20;
+}
+
+.home .mercana-hero + #navbar {
+  background-color: #fdfdfe;
+}
+
+.mercana-hero .iframe-wrapper {
+  display: none !important;
+}
+
+.work-image-loop {
+  height: auto;
+  overflow: visible;
+}
+
+.work-image-loop img.work-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MERCANA Portfolio — luxury architecture studio presentation
+   ═══════════════════════════════════════════════════════════════ */
+
+.mercana-portfolio__empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: #8a8a8a;
+  font-size: 15px;
+}
+
+.mercana-portfolio__grid {
+  padding-top: 0;
+  padding-bottom: 32px;
+}
+
+@media (min-width: 575px) {
+  .mercana-portfolio__grid {
+    padding-top: 0;
+    padding-bottom: 56px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mercana-portfolio__grid {
+    padding-top: 0;
+    padding-bottom: 88px;
+  }
+}
+
+.mercana-portfolio__row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.mercana-portfolio__grid .col-work {
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 8px 0;
+}
+
+@media (min-width: 992px) {
+  .mercana-portfolio__grid .col-work {
+    margin: 10px 0;
+  }
+}
+
+.mercana-portfolio__card {
+  position: relative;
+  background: #0e0e0e;
+  border-radius: 0;
+}
+
+.mercana-portfolio__card > a {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-bottom: none !important;
+  padding-bottom: 0;
+}
+
+.mercana-portfolio__card > a:visited {
+  border-bottom: none !important;
+}
+
+/* Luxury dark overlay with cinematic gradient */
+.mercana-portfolio__cover {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.42) 45%,
+    rgba(0, 0, 0, 0.58) 100%
+  );
+  width: 100%;
+  left: 0;
+  opacity: 1;
+  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mercana-portfolio__cover-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 24px;
+}
+
+.mercana-portfolio__cover h2 {
+  margin: 0;
+  padding: 0 12px;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 576px) {
+  .mercana-portfolio__cover h2 {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mercana-portfolio__grid [data-cols="4"] .mercana-portfolio__cover h2 {
+    font-size: 26px;
+  }
+
+  .mercana-portfolio__grid [data-cols="8"] .mercana-portfolio__cover h2 {
+    font-size: 36px;
+  }
+}
+
+.mercana-portfolio__subtitle {
+  margin: 0;
+  font-family: sofia-pro, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (min-width: 576px) {
+  .mercana-portfolio__subtitle {
+    font-size: 12px;
+  }
+}
+
+/* Image framing — cinematic cover, no stretch */
+.mercana-portfolio__card img,
+.more-projects.mercana-portfolio .work-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Portrait in narrow col-4: natural cover — no side-crop hack needed */
+.mercana-portfolio__card img.cover-mode-horizontal {
+  object-fit: cover;
+}
+
+/* Portrait in wider slots (col-6): height-fill, crop sides only */
+@media only screen and (min-width: 992px) {
+  .mercana-portfolio__card img.cover-mode-vertical,
+  .more-projects.mercana-portfolio .work-card img.cover-mode-vertical {
+    width: auto;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .mercana-portfolio__card:hover img.cover-mode-vertical,
+  .more-projects.mercana-portfolio .work-card:hover img.cover-mode-vertical {
+    transform: translateX(-50%) scale(1.05);
+  }
+
+  .mercana-portfolio__card:hover img.cover-mode-horizontal,
+  .more-projects.mercana-portfolio .work-card:hover img.cover-mode-horizontal {
+    transform: scale(1.05);
+  }
+
+  .mercana-portfolio__card:hover .mercana-portfolio__cover,
+  .more-projects.mercana-portfolio .work-card:hover .mercana-portfolio__cover {
+    opacity: 0;
+  }
+}
+
+/* Mobile / tablet — orientation-aware aspect ratios */
+@media only screen and (max-width: 991px) {
+  .mercana-portfolio__grid .work-card--horizontal > a {
+    aspect-ratio: 3 / 2;
+  }
+
+  .mercana-portfolio__grid .work-card--vertical > a,
+  .mercana-portfolio__grid .work-card--portrait-narrow > a {
+    aspect-ratio: 4 / 5;
+  }
+
+  .mercana-portfolio__grid .work-card--square > a {
+    aspect-ratio: 1 / 1;
+  }
+
+  .mercana-portfolio__grid .work-card img.cover-mode-vertical {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .mercana-portfolio__grid .col-work {
+    height: auto !important;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .more-projects.mercana-portfolio .work-card--horizontal > a {
+    aspect-ratio: 3 / 2;
+  }
+
+  .more-projects.mercana-portfolio .work-card--vertical > a,
+  .more-projects.mercana-portfolio .work-card--portrait-narrow > a {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* Compact variant — related projects strip */
+.mercana-portfolio--compact .mercana-portfolio__cover h2 {
+  font-size: 24px;
+}
+
+.mercana-portfolio--compact .mercana-portfolio__subtitle {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+/* Portfolio card — overlay must not block navigation */
+.work-card {
+  position: relative;
+}
+
+.work-cover {
+  pointer-events: none;
+}
+
+.scroll-reveal .work-card::before {
+  pointer-events: none;
+}
+
+/* Legacy selectors — keep more-projects compatible */
+.work-cards-wrapper .work-card > a,
+.more-projects .work-card > a {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-bottom: none !important;
+  padding-bottom: 0;
+}
+
+.work-cards-wrapper .work-card > a:visited,
+.more-projects .work-card > a:visited {
+  border-bottom: none !important;
+}
+
+
+/* MERCANA footer — clean spacing on mobile */
+@media only screen and (max-width: 991px) {
+  .footer .logo-footer {
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .footer .contact {
+    margin-bottom: 32px;
+  }
+
+  .footer .social {
+    align-items: center;
+  }
+
+  .footer .social-links {
+    justify-content: center;
+  }
+
+  .footer .smallprint {
+    text-align: center;
+  }
+}
