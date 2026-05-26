@@ -7,10 +7,10 @@ Place your renders in category folders. The site auto-detects all images at buil
 ```
 public/project/
 ├── bedroom/          ← images directly, OR subfolders per project
-│   ├── 01-render.jpg
+│   ├── 01-render.webp
 │   └── luxury-suite/
-│       ├── hero.jpg
-│       └── detail.jpg
+│       ├── hero.webp
+│       └── detail.webp
 ├── bassen/
 ├── kuhnya/
 └── sanuzel/
@@ -18,7 +18,8 @@ public/project/
 
 ## Rules
 
-- Supported: `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif`, `.gif`
+- Supported: `.webp`, `.png`
+- Use `.webp` for all portfolio renders (recommended)
 - First image (alphabetically) = hero on project page
 - Horizontal renders display full width in gallery
 - Vertical renders display side-by-side (pairs)

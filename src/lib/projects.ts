@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { imageSize } from "image-size";
 
-import { IMAGE_EXTENSIONS } from "./constants";
+import { IMAGE_EXTENSIONS, LEGACY_IMAGE_EXTENSIONS } from "./constants";
 import { getProjectBranding, PORTFOLIO_DISPLAY_ORDER } from "./project-branding";
 import type {
   ImageOrientation,
@@ -28,14 +28,20 @@ function toPublicSrc(relativePath: string): string {
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
 }
 
+/** Map .jpg / .jpeg paths to .webp (same basename). */
+function toWebpRelativePath(relativePath: string): string {
+  return relativePath.replace(LEGACY_IMAGE_EXTENSIONS, ".webp");
+}
+
 function resolveImage(
   relativePath: string,
   projectTitle: string,
 ): ProjectImage | null {
+  const webpPath = toWebpRelativePath(relativePath);
   const absolute = path.join(
     process.cwd(),
     "public",
-    relativePath.replace(/^\//, ""),
+    webpPath.replace(/^\//, ""),
   );
 
   if (!fs.existsSync(absolute)) return null;
@@ -56,7 +62,7 @@ function resolveImage(
   const fileName = path.basename(relativePath);
 
   return {
-    src: toPublicSrc(relativePath.replace(/^\//, "")),
+    src: toPublicSrc(webpPath.replace(/^\//, "")),
     width,
     height,
     orientation: getOrientation(width, height),
@@ -224,4 +230,39 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 export function getProjectSlugs(): string[] {
   return getAllProjects().map((project) => project.slug);
+}
+
+/** Verify every scanned project image file exists on disk. */
+export function verifyProjectAssets(): {
+  ok: boolean;
+  missing: string[];
+  projects: number;
+  images: number;
+} {
+  const projects = getAllProjects();
+  const missing: string[] = [];
+
+  for (const project of projects) {
+    for (const image of project.images) {
+      if (!image.src) {
+        missing.push(`${project.slug}: (empty src)`);
+        continue;
+      }
+      const absolute = path.join(
+        process.cwd(),
+        "public",
+        image.src.replace(/^\//, ""),
+      );
+      if (!fs.existsSync(absolute)) {
+        missing.push(image.src);
+      }
+    }
+  }
+
+  return {
+    ok: missing.length === 0,
+    missing,
+    projects: projects.length,
+    images: projects.reduce((sum, p) => sum + p.images.length, 0),
+  };
 }

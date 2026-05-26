@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "resize-logos": "node scripts/resize-logos.mjs"
+    "resize-logos": "node scripts/resize-logos.mjs",
+    "verify-assets": "npx tsx -e \"import { verifyProjectAssets } from './src/lib/projects.ts'; const r = verifyProjectAssets(); console.log(JSON.stringify(r, null, 2)); if (!r.ok) process.exit(1);\""
   },
   "dependencies": {
     "framer-motion": "^11.18.2",

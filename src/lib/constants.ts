@@ -23,12 +23,11 @@ export const CATEGORY_LABELS: Record<
   sanuzel: "Bathroom",
 };
 
-export const IMAGE_EXTENSIONS = new Set([
-  ".jpg",
-  ".jpeg",
-  ".png",
-  ".webp",
-]);
+/** Portfolio image formats — WebP is the primary format. */
+export const IMAGE_EXTENSIONS = new Set([".webp", ".png"]);
+
+/** Legacy extensions normalized to WebP when resolving paths. */
+export const LEGACY_IMAGE_EXTENSIONS = /\.(jpe?g)$/i;
 
 export const FOOTER = {
   phone: "+998 90 012 56 57",

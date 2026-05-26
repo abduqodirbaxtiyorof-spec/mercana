@@ -99,7 +99,7 @@ function GalleryEmptyFallback({ projectTitle }: { projectTitle?: string }) {
                   images not found
                 </p>
                 <p style={{ margin: "12px 0 0", color: "#8a8a8a", fontSize: "15px" }}>
-                  Add .jpg, .jpeg, .png or .webp to{" "}
+                  Add .webp or .png to{" "}
                   <code style={{ color: "#3f3f40" }}>public/project/</code>
                 </p>
               </div>
