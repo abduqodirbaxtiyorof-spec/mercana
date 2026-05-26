@@ -1,4 +1,4 @@
-/* Block any Lottie layers injected by MICASA main.js (static Mercana logos only) */
+/* Block Lottie layers injected by theme main.js (static MERCANA logos only) */
 #navbar-brand svg,
 .hero-cover #logo-animation {
   display: none !important;

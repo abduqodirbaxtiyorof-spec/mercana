@@ -3,7 +3,7 @@ import type { Project } from "./types";
 
 type CoverProject = Pick<Project, "slug" | "category" | "coverImage">;
 
-/** Per-category focal anchor — tuned for MICASA card heights. */
+/** Per-category focal anchor — tuned for portfolio card heights. */
 export const COVER_FOCAL: Record<string, string> = {
   kuhnya: "center 68%",
   bedroom: "center 55%",

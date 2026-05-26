@@ -1,4 +1,4 @@
-export const SITE_NAME = "MICASA";
+export const SITE_NAME = "MERCANA";
 
 export type NavLink =
   | { href: string; label: string; external?: false }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 
-import { NAV_LINKS } from "@/lib/constants";
+import { FOOTER, NAV_LINKS } from "@/lib/constants";
 
 interface MicasaNavbarProps {
   sticky?: boolean;
@@ -60,7 +60,12 @@ export function MicasaNavbar({
     <nav id="navbar" className={className}>
       <Link id="navbar-brand" href="/">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/micasa/images/mini_logo.png" width={50} height={50} alt="" />
+        <img
+          src="/micasa/images/mini_logo.png"
+          width={50}
+          height={50}
+          alt="MERCANA — Design Studio"
+        />
       </Link>
       <div id="mobile-nav-toggle" />
       <div className="collapse navbar-collapse justify-content-end">
@@ -116,38 +121,28 @@ export function MicasaNavbar({
         </ul>
         <div className="mobile-overlay-contact">
           <div className="main">
-            Contact UAE
+            Contact
             <br />
-            <a href="tel:+971586891771" className="animated-link">
-              +971 58 6891771
+            <a href={FOOTER.phoneHref} className="animated-link">
+              {FOOTER.phone}
             </a>
             <br />
-            <a href="mailto:info@micasa-design.com" className="animated-link">
-              info@micasa-design.com
-            </a>
-          </div>
-          <br />
-          <div className="main">
-            Contact UZB
-            <br />
-            <a href="tel:+998954755000" className="animated-link">
-              +998 95 4755000
+            <a
+              href={FOOTER.instagram}
+              className="animated-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
             </a>
             <br />
-            <a href="mailto:info@micasa-design.com" className="animated-link">
-              info@micasa-design.com
-            </a>
-          </div>
-          <br />
-          <div className="main">
-            Contact RU
-            <br />
-            <a href="tel:+79099400097" className="animated-link">
-              +7 909 9400097
-            </a>
-            <br />
-            <a href="mailto:info@micasa-design.ru" className="animated-link">
-              info@micasa-design.ru
+            <a
+              href={FOOTER.telegram}
+              className="animated-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Telegram
             </a>
           </div>
         </div>

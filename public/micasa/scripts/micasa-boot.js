@@ -1,5 +1,5 @@
 /**
- * Ensures MICASA page visibility if main.js fails partially.
+ * Ensures page visibility if main.js fails partially.
  * Load after main.js.
  */
 (function () {

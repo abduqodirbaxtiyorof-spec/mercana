@@ -1,5 +1,5 @@
 /**
- * Prevent MICASA Lottie from injecting duplicate logos into navbar / missing hero container.
+ * Prevent theme Lottie from injecting duplicate logos into navbar / missing hero container.
  */
 (function (w) {
   function patchLottie() {
@@ -64,7 +64,7 @@
         try {
           return callback.apply(this, arguments);
         } catch (error) {
-          console.warn("[MICASA] init callback skipped:", error);
+          console.warn("[MERCANA] init callback skipped:", error);
         }
       });
     };

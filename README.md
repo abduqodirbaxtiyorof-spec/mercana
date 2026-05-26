@@ -1,30 +1,41 @@
-# MICASA Portfolio (Next.js)
+# MERCANA — Design Studio
 
-Original [MICASA](https://www.micasa-design.com) layout **1:1** — navbar, hero, typography, animations, footer.
+Luxury architecture and interior design portfolio built with Next.js 15.
 
-**Only customized:** portfolio images from `public/project/` and orientation-based gallery layout.
+## Stack
 
-## Images
+- Next.js 15 (App Router)
+- Original layout styles from the reference theme (`/micasa/styles/main.css`)
+- Custom overrides (`/micasa-overrides.css`)
+- Portfolio images in `public/project/` (WebP)
 
-```
-public/project/
-├── bedroom/
-├── bassen/
-├── kuhnya/
-└── sanuzel/
-```
+## Development
 
-## Gallery rules (project detail page)
-
-- Vertical → side-by-side (`col-lg-6` pairs)
-- Horizontal → full width (`col-sm-12`)
-- Aspect ratio preserved — no `object-cover` crop (`micasa-overrides.css`)
-
-## Dev
-
-```powershell
-npm install --ignore-scripts
+```bash
+npm install
 npm run dev
 ```
 
-Open http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000).
+
+## Production (Vercel)
+
+Set environment variable:
+
+```
+NEXT_PUBLIC_SITE_URL=https://your-domain.vercel.app
+```
+
+```bash
+npm run build
+npm run start
+```
+
+## Scripts
+
+- `npm run verify-assets` — check all portfolio images exist
+- `npm run resize-logos` — regenerate logo assets
+
+## Project images
+
+See `public/project/README.md`.

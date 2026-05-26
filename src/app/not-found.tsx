@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { MicasaBody } from "@/components/micasa/MicasaBody";
 import { MicasaNavbar } from "@/components/micasa/MicasaNavbar";
+import { SITE, buildDefaultMetadata } from "@/lib/site-metadata";
+
+export const metadata: Metadata = {
+  ...buildDefaultMetadata(),
+  title: `Page not found | ${SITE.title}`,
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (

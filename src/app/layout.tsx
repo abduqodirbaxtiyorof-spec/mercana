@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 
+import { StructuredData } from "@/components/seo/StructuredData";
 import { MicasaTypekit } from "@/components/micasa/MicasaTypekit";
+import { buildDefaultMetadata } from "@/lib/site-metadata";
 
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "MICASA - Design & Architecture",
-  description: "MICASA - Design & Architecture.",
-};
+export const metadata: Metadata = buildDefaultMetadata();
 
 export default function RootLayout({
   children,
@@ -16,8 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-US">
+    <html lang="en">
       <head>
+        <StructuredData />
         <link rel="stylesheet" href="/micasa/styles/main.css" />
         <link rel="stylesheet" href="/micasa/fontawesome/css/font-awesome.min.css" />
         <link rel="stylesheet" href="/micasa-overrides.css" />

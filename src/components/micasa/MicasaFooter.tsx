@@ -8,7 +8,10 @@ export function MicasaFooter() {
           <div className="col-sm-12 col-md-12 col-lg-4">
             <div className="logo-footer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/micasa/images/logo_black.png" alt="MERCANA" />
+              <img
+                src="/micasa/images/logo_black.png"
+                alt="MERCANA — Design Studio"
+              />
             </div>
           </div>
 

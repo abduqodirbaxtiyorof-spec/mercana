@@ -11,6 +11,7 @@ import {
   getProjectBySlug,
   getProjectSlugs,
 } from "@/lib/projects";
+import { buildDefaultMetadata, buildProjectMetadata } from "@/lib/site-metadata";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -31,13 +32,16 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: "MERCANA Design Studio" };
+    return buildDefaultMetadata();
   }
 
-  return {
-    title: `${project.title} | MERCANA Design Studio`,
-    description: `${project.title} — ${project.subtitle}. ${project.description}`,
-  };
+  return buildProjectMetadata(
+    slug,
+    project.title,
+    project.subtitle,
+    project.description,
+    project.coverImage.src,
+  );
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
